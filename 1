@@ -52,8 +52,8 @@
              	#幸運計算
               	$parameter['luck'] = $san_tmp;
               	#知識計算
-              	$intial_tmp = $parameter['edu'];
-              	$intial_tmp *= 5;
+              	$idea_tmp = $parameter['edu'];
+              	$idea_tmp *= 5;
               	$parameter['intial'] = $idea_tmp;
               	#職業ポイント計算
 			  	#計算するための関数
@@ -72,17 +72,18 @@
 			  $job_id = $request->only("job_id");
 			  $jobpoints = new jobpoint();
 			  #データべスから取り出し
-			  $job_s = jobpoint::where('job_id', $job_id)->first();
-			  $awk = explode(',', $job_s['job_formula']);
+			  $job_s = jobpoint::where('job_formula', $job_id)->firstOrFail();
+			  /*$awk = explode(',', $job_s);
 			  $select = [];
 			  foreach($awk as $a){
 				$select[] = get_point($a, $parameter);
 			  }
-			  $parameter['jsp'] = max($select);
+			  $parameter['jsp'] = max($select);*/
+			  $parameter['jsp'] = $job_s;
               #趣味ポイント計算
-              $hsp_tmp = $parameter['int'];
-              $hsp_tmp *= 10;
-              $parameter['hsp'] = $hsp_tmp;
+              /*$hsp_tmp = $parameter['int'];
+              $hsp_tmp *= 10
+              $parameter['hsp'] = $hsp_tmp;*/
               return $parameter;
           }
           #作ったキャラクターをデータベースに格納する

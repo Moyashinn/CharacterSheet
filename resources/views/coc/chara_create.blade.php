@@ -84,8 +84,8 @@
                                     <th>趣味ポイント</th>
                                 </tr>
                                 <tr>
-                                    <th class="jsk">0</th>
-                                    <th class="hsk">0</th>
+                                    <th id="jsp">0</th>
+                                    <th id="hsp">0</th>
                                 </tr>
                             </table>
                         </details>

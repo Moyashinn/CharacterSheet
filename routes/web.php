@@ -19,10 +19,9 @@ Auth::routes();
 #ホーム画面
 #Route::get('/home', 'HomeController@index')->name('home');
 
-
 #キャラクター関係(coc)
 #Route::post('/coc_list', 'CocCharactorMain@list')->name('list');
 Route::match(['get', 'post'],'/home','CocCharacterController@create');
 //ajaxルート
 Route::post('/job', 'CocCharacterController@job');
-Route::post('parameter_math', 'CocCharacterController@parameter');
+Route::post('/parameter_math', 'CocCharacterController@parameter');

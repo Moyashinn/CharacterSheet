@@ -1,4 +1,4 @@
-@extends('layout.layout_default')
+@extends('layouts.app')
 @section('title', 'アカウント作成')
 @section('content')
     <h1>アカウント登録</h1>

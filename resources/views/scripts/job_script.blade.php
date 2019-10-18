@@ -8,8 +8,8 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "/job/",
-                type: 'POST',
+                url: "/job",
+                type: "POST",
                 data: {
                     profession_id: profession_val
             }
@@ -44,8 +44,8 @@
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                url: "/parameter_math/",
-                dataType: 'json',
+                url: "/parameter_math",
+                dataType: "json",
                 ContentType: 'application/json',
                 type: 'POST',
                 data: {
@@ -63,7 +63,7 @@
                     idea:0,
                     luck:0,
                     intial:0,
-                    job_id:Number($('.job').val()),
+                    job_id:$('.job').val(),
                     jsp:0,
                     hsp:0,
                 },
@@ -75,8 +75,10 @@
                 $('#idea').html(data.idea);
                 $('#luck').html(data.luck);
                 $('#intial').html(data.intial);
+				$('#jsp').html(data.jsp);
+				$('#hsp').html(data.hsp);
                 console.log(data.str);
-                console.log(data[0]);
+                console.log(data.jsp);
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 alert('ファイルの取得に失敗しました。');

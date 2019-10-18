@@ -1,4 +1,4 @@
-@extends('layout.layout_default')
+@extends('layouts.app')
 @section('title','キャラクターシート')
 @section('content')
     <h1>キャラクターの作成</h1>
