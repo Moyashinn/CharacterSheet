@@ -1,5 +1,15 @@
 <script type="text/javascript">
-(function($){
+	$(function(){
+		$('.parameter').on('change',  function(){
+			var avoid = ($('#dex').val());
+			var lang = ($('#edu').val());
+			avoid *= 2;
+			lang *= 5;
+			($('#skill_1').html(avoid));		
+			($('#skill_34').html(lang));		
+		});
+	});
+	//ここから下はajax通信
     $(function(){
       //セレクトが変更されたら実行
         $('.profession').on('change', function () {
@@ -12,8 +22,8 @@
                 type: "POST",
                 data: {
                     profession_id: profession_val
-            }
-        })
+            },
+        	})
             //リクエスト成功時の処理
             .done(function (data) {
                 //職業プルダウンの表示が職種プルダウンの結果によって変わる
@@ -33,10 +43,7 @@
                 console.log('job');
             });
         });
-    });
-  })(window.jQuery);
-(function($){
-    $(function(){
+
         $('.parameter, .job, .profession').on('change', function(){
             //パラメーターの情報を配列にプッシュしていく(0は計算結果に使うので初期化のみ)
             
@@ -77,8 +84,6 @@
                 $('#intial').html(data.intial);
 				$('#jsp').html(data.jsp);
 				$('#hsp').html(data.hsp);
-                console.log(data.str);
-                console.log(data.jsp);
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 alert('ファイルの取得に失敗しました。');
@@ -90,5 +95,4 @@
             });
         });
     });
-})(window.jQuery);
 </script>

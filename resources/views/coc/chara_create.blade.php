@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@include('scripts.job_script')
 <script type="text/javascript"></script>
 <div class="container">
     <div class="row justify-content-center">
@@ -13,7 +12,7 @@
                   <div class="character_profession">
                     {{Form::select('profession',$profession_value, null, ['class' => 'profession', 'placeholder' => '職種'])}}
                     <div class="character_job">
-                      {{Form::select('job', [], null,['class' => 'job', 'placeholder' => '職業'])}}
+                      {{Form::select('job', [], null,['class' => 'job', 'placeholder' => '職業'])}}<br>
                     </div>
                   </div>
                 </details>
@@ -87,7 +86,52 @@
                                     <th id="jsp">0</th>
                                     <th id="hsp">0</th>
                                 </tr>
-                            </table>
+                            </table >
+								スキル振り分け<br>
+							<table class='table-bordered'>
+								@foreach($skill_type_value as $k=>$v)
+									<tr>
+										<th class='skill_type' colspan=4 align='center'>
+											{{$v}}
+										</th>
+									</tr>
+									<tr>
+										<th>
+											名前
+										</th>
+										<th>
+											初期値
+										</th>
+										<th>
+											職業
+										</th>
+										<th>
+											趣味
+										</th>
+									@foreach($skill_value as $key=>$val)
+										@if($k === $val->skill_type_id)
+											<tr class='skill_value'>
+												<td>
+													{{$val->skill_name}}
+													@if($val->skill_input_flg == 1)
+														<input type='text'>
+													@endif
+												</td>
+												<td id='skill_{{$val->skill_id}}'>
+													{{$val->skill_value}}
+												</td>
+												<td>
+													<input type='number'>
+												</td>
+												<td>
+													<input type='number'>
+												</td>
+											</tr>
+										@endif
+									@endforeach
+								@endforeach
+							</table>
+								
                         </details>
                     </div>
                 </div>

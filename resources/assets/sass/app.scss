@@ -1,0 +1,19 @@
+
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+summary::-webkit-details-marker{
+	//そのほか
+	list-style:none;
+	//Chrome
+	display:none;
+}
+table{
+	width:100%
+}
+div.coc_parameter{
+	width:700px;
+	margin:0 auto;
+}
+

@@ -16,10 +16,11 @@ class CreateSkillMastersTable extends Migration
         Schema::create('skill_masters', function (Blueprint $table) {
             $table->bigInteger('skill_type_id')->unsigned();
             $table->foreign('skill_type_id')->references('skill_type_id')->on('skill_type_masters');
-            $table->bigIncrements('skillid');
+            $table->bigIncrements('skill_id');
             $table->string('skill_name');
             $table->string('skill_value');
-            $table->boolean('skill_costom_flg');
+			$table->boolean('skill_input_flg')->default(false);
+            $table->boolean('skill_costom_flg')->default(false);
             $table->timestamps();
         });
     }

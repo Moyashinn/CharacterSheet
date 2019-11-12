@@ -21,7 +21,9 @@ Auth::routes();
 
 #キャラクター関係(coc)
 #Route::post('/coc_list', 'CocCharactorMain@list')->name('list');
-Route::match(['get', 'post'],'/home','CocCharacterController@create');
+
+Route::match(['get', 'post'],'/home2','CocCharacterController@create');
+Route::post('/save', 'CocCharacterController@save');
 //ajaxルート
 Route::post('/job', 'CocCharacterController@job');
 Route::post('/parameter_math', 'CocCharacterController@parameter');
