@@ -10,6 +10,7 @@
 		<div class='col-md-8'>
 			<div class='coc_form'>
 				<form action="{{url('/save')}}" method='post'>
+					@csrf
 					<div class='coc_job'>
 						<details>
 							<summary>職業</summary>
@@ -220,16 +221,16 @@
 															<input type='text'>
 														@endif
 													</td>
-													<td id='skill_{{$val->skill_id}}'>
+													<td name='1'>
 														{{$val->skill_value}}
 													</td>
 													<td>
-														<input id='job_{{$val->skill_id}}' type='number' style='width:40px'>
+														<input name='2' type='number' style='width:40px'>
 													</td>
 													<td>
-														<input id='hobby_{{$val->skill_id}}' type='number' style='width:40px'>
+														<input name='3' type='number' style='width:40px'>
 													</td>
-													<td id='skill_point_sum_{{$val->skill_id}}'>0</td>
+													<td name='{{$val->skill_id}}'>0</td>
 												</tr>
 											@endif
 										@endforeach
@@ -399,6 +400,7 @@
 							</table>
 						</details>
 					</div>
+					<button type="button" class="save">キャラクター保存</button>
 				</form>
 			</div>
 		</div>

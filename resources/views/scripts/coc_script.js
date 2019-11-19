@@ -8,7 +8,10 @@
 			($('#skill_1').html(avoid));		
 			($('#skill_34').html(lang));		
 		});
-	});
+		$('.skill_value').on(function(){
+			for(var i = 1; i <= 3){
+			}
+		});
 	//ここから下はajax通信
     $(function(){
       //セレクトが変更されたら実行
@@ -43,7 +46,24 @@
                 console.log('job');
             });
         });
-
+		/*$('.save').on('click'function(){
+			$.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "/parameter_math",
+                dataType: "json",
+                ContentType: 'application/json',
+                type: 'POST',
+				data: {
+				},
+			})
+			.done(function(data, textstatus, jqXHR){
+			})
+			.fail(function (jqXHR, textStatus, errorThrown) {
+			});
+		});
+		*/
         $('.parameter, .job, .profession').on('change', function(){
             //パラメーターの情報を配列にプッシュしていく(0は計算結果に使うので初期化のみ)
             

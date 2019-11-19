@@ -56,7 +56,9 @@
 		//スキルポイントを割り振ったら、合計に加算する
 		//持ってるスキルポイントを超過したらエラーっぽい処理をする
 		$('.skill_value').on('change', function(){
-			
+			$('.skill_value').each(function(){
+				
+			}			
 		});
 	});
 	//ここから下はajax通信
