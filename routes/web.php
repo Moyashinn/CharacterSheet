@@ -14,8 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/list', function(){
+	return view('coc_new/list');
+});
+Route::post('/test','Test@test');
+Route::match(['get', 'post'],'/home2','CocNew\Create@create');
 
-Route::match(['get', 'post'],'/home2','CocCharacterController@create');
 Auth::routes();
 #ホーム画面
 #Route::get('/home', 'HomeController@index')->name('home');
@@ -25,5 +29,5 @@ Auth::routes();
 
 Route::post('/save', 'CocCharacterController@save');
 //ajaxルート
-Route::post('/job', 'CocCharacterController@job');
-Route::post('/parameter_math', 'CocCharacterController@parameter');
+Route::post('/job', 'coc\CreateLimit@job');
+Route::post('/parameter_math', 'coc\CreateLimit@parameter');

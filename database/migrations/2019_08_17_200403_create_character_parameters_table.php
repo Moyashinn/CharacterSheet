@@ -15,7 +15,7 @@ class CreateCharacterParametersTable extends Migration
     {
         Schema::create('character_parameters', function (Blueprint $table) {
             
-            $table->integer('str')->unsigned();
+            /*$table->integer('str')->unsigned();
             $table->integer('con')->unsigned();
             $table->integer('siz')->unsigned();
             $table->integer('dex')->unsigned();
@@ -25,10 +25,10 @@ class CreateCharacterParametersTable extends Migration
             $table->integer('edu')->unsigned();
             $table->integer('hp')->unsigned();
             $table->integer('mp')->unsigned();
-            $table->integer('san')->unsigned();
-            $table->string('character_job');
-            $table->integer('jsp')->unsigned();
-            $table->integer('hsp')->unsigned();
+            $table->integer('san')->unsigned();*/
+			$table->bigInteger('character_id')->unsigned();
+			$table->foreign('character_id')->references('character_id')->on('character_lists');
+			$table->json('parameters')->nullable();
             $table->timestamps();
         });
     }

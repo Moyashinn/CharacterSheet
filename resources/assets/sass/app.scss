@@ -3,14 +3,31 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-summary::-webkit-details-marker{
-	//そのほか
-	list-style:none;
-	//Chrome
-	display:none;
+
+@media screen and (max-width: 640px) {
+	.parameter_table{
+		overflow-x: auto;
+	}
+}
+.sidebar{
+	position:fixed;
+	left:0;
+	top:3;
+}
+textarea{
+	resize:none;
+	width:450px;
+	height:100px;
+}
+.add{
+	width:50px;
+}
+.another{
+	width:50px;
 }
 table{
-	width:100%
+	table-layout:auto;
+	width:100%;
 }
 div.coc_parameter{
 	width:700px;

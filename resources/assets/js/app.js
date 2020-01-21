@@ -2,8 +2,8 @@
 * includes Vue and other libraries. It is a great starting point when
 * * building robust, powerful web applications using Vue and Laravel.
 * */
-//require('./bootstrap');
-require('./coc_script');
+require('bootstrap');
+require('./new_coc_script');
 //window.Vue = require('vue');
 /**
  * * The following block of code may be used to automatically register your

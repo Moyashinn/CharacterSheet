@@ -16,9 +16,7 @@ class CreateCharacterArtifactsTable extends Migration
         Schema::create('character_artifacts', function (Blueprint $table) {
             $table->bigInteger('character_id')->unsigned();
             $table->foreign('character_id')->references('character_id')->on('character_lists');
-            $table->bigIncrements('artifuct_id');
-            $table->string('artifuct_name');
-            $table->string('artifuct_info', 200);
+            $table->json('artifuct');
             $table->timestamps();
         });
     }

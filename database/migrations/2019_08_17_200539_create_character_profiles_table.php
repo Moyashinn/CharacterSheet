@@ -16,14 +16,15 @@ class CreateCharacterProfilesTable extends Migration
         Schema::create('character_profiles', function (Blueprint $table) {
             $table->bigInteger('character_id')->unsigned();
             $table->foreign('character_id')->references('character_id')->on('character_lists');
-            $table->string('character_name');
+            /*$table->string('character_name');
             $table->string('character_age');
             $table->string('character_sex');
             $table->string('character_any_info');
             $table->string('character_pocketmoney');
             $table->string('character_deposit');
             $table->string('character_spirit_obstacle');
-            $table->string('character_body_obstacle');
+            $table->string('character_body_obstacle');*/
+			$table->json('profile');
             $table->timestamps();
         });
     }

@@ -56,13 +56,21 @@
 		//スキルポイントを割り振ったら、合計に加算する
 		//持ってるスキルポイントを超過したらエラーっぽい処理をする
 		$('.skill_value').on('change', function(){
-			$('.skill_value').each(function(){
-				
-			}			
+			$('input[name^="jsp"]').each(function(key, val){
+				if(key !=0){
+					var jsp = Number($('input[name="jsp' + key + '"]').val());
+					var hsp = Number($('input[name="hsp' + key + '"]').val());
+					var isp = Number($('#skill_' + key).html());
+					var sum = 0;
+					sum += jsp + hsp + isp;
+					console.log(sum);
+					($('#sum' + key).html(sum));
+				}
+			});
 		});
-	});
+	//});
 	//ここから下はajax通信
-    $(function(){
+    //$(function(){
       //セレクトが変更されたら実行
         $('.profession').on('change', function () {
             var profession_val = $(this).val();
@@ -96,7 +104,7 @@
             });
         });
 
-        $('.parameter, .job, .profession').on('change', function(){
+        $('.parameter, .job,').on('change', function(){
             //パラメーターの情報を配列にプッシュしていく(0は計算結果に使うので初期化のみ)
             
             $.ajax({
@@ -136,6 +144,7 @@
                 $('#intial').html(data.intial);
 				$('#jsp').html(data.jsp);
 				$('#hsp').html(data.hsp);
+				console.log('.profession'.val());
             })
             .fail(function (jqXHR, textStatus, errorThrown) {
                 alert('ファイルの取得に失敗しました。');

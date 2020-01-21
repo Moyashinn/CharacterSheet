@@ -16,12 +16,7 @@ class CreateCharacterItemsTable extends Migration
         Schema::create('character_items', function (Blueprint $table) {
             $table->bigInteger('character_id')->unsigned();
             $table->foreign('character_id')->references('character_id')->on('character_lists');
-            $table->bigIncrements('item_id');
-            $table->string('name');
-            $table->integer('item_unitprice')->unsigned();
-            $table->integer('item_quantity')->unsigned();
-            $table->integer('item_price')->unsigned();
-            $table->string('item_info', 200);
+            $table->json('item');
             $table->timestamps();
         });
     }

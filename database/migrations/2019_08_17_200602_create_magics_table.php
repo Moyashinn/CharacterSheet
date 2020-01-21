@@ -16,10 +16,7 @@ class CreateMagicsTable extends Migration
         Schema::create('magics', function (Blueprint $table) {
             $table->bigInteger('character_id')->unsigned();
             $table->foreign('character_id')->references('character_id')->on('character_lists');
-            $table->bigIncrements('magic_id');
-            $table->string('magic_name');
-            $table->integer('consmption_mp')->unsigned();
-            $table->string('magic_info');
+            $table->json('magic');
             $table->timestamps();
         });
     }
